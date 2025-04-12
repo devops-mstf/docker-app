@@ -1,0 +1,17 @@
+# Dockerfiledeneme
+
+# Temel imaj olarak Python'ı kullanalım (Alpine da olabilir, Python daha kapsamlı)
+FROM python:3.9-slim
+
+# Çalışma dizini oluştur
+WORKDIR /app
+
+# Çalışma dizinine dosyaları kopyala
+COPY . /app
+
+# Gereksinim dosyasını kopyala ve paketleri yükle
+COPY requirements.txt /app/
+RUN pip install -r requirements.txt
+
+# Uygulama çalıştır
+CMD ["python", "app.py"]
